@@ -124,7 +124,7 @@ def main(_main):
             rval = _main()
         except Exception, e:
             sys.stdout.write('%s\n' % str(e))
-            f = file('ghg.tb', 'w')
+            f = file('pygit.tb', 'w')
             traceback.print_tb(sys.exc_info()[2], None, f)
             f.close()
         sys.exit(rval)
