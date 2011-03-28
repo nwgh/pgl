@@ -94,6 +94,11 @@ def __create_config():
         git_dir = os.path.join(config['GIT_TOPLEVEL'], config['GIT_DIR'])
         config['GIT_DIR'] = os.path.abspath(git_dir)
 
+def warn(msg):
+    """Print a warning
+    """
+    sys.stderr.write('%s\n')
+
 def die(msg):
     """Print an error message and exit the program
     """
