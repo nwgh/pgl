@@ -64,20 +64,20 @@ def __create_config():
     # Find out where git's sub-exes live
     gitexec = subprocess.Popen(['git', '--exec-path'], stdout=subprocess.PIPE,
         stderr=devnull)
-    config['GIT_LIBEXEC'] = gitexec.readlines()[0].strip()
+    config['GIT_LIBEXEC'] = gitexec.stdout.readlines()[0].strip()
     gitexec.wait()
 
     # Figure out the git dir in our repo, if applicable
     gitdir = subprocess.Popen(['git', 'rev-parse', '--git-dir'],
         stdout=subprocess.PIPE, stderr=devnull)
-    lines = gitdir.readlines()
+    lines = gitdir.stdout.readlines()
     if gitdir.wait() == 0:
         config['GIT_DIR'] = lines[0].strip()
 
     # Figure out the top level of our repo, if applicable
     gittoplevel = subprocess.Popen(['git', 'rev-parse', '--show-toplevel'],
         stdout=subprocess.PIPE, stderr=devnull)
-    lines = gittoplevel.readlines()
+    lines = gittoplevel.stdout.readlines()
     if gittoplevel.wait() == 0:
         config['GIT_TOPLEVEL'] = lines[0].strip()
 
