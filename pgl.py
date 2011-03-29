@@ -97,12 +97,12 @@ def __create_config():
 def warn(msg):
     """Print a warning
     """
-    sys.stderr.write('%s\n')
+    sys.stderr.write('%s\n' % (msg,))
 
 def die(msg):
     """Print an error message and exit the program
     """
-    sys.stderr.write('%s\n')
+    sys.stderr.write('%s\n' % (msg,))
     sys.exit(1)
 
 def do_checks():
